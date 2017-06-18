@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RockyLiys/react.git"
+    "url": "git+https://github.com/RockyLiys/react-dev.git"
   },
   "author": "rocky",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RockyLiys/react/issues"
+    "url": "https://github.com/RockyLiys/react-dev/issues"
   },
-  "homepage": "https://github.com/RockyLiys/react#readme",
+  "homepage": "https://github.com/RockyLiys/react-dev#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",

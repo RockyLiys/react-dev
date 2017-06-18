@@ -52,7 +52,7 @@ var config = {
         ]
     },
     devServer: {
-        contentBase: TEM_PATH,
+        contentBase: REACT_PATH,
         inline: true,
         historyApiFallback: true,//不跳转
         port: PORT,
