@@ -1,7 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var node_modules_dir = path.join(__dirname, 'node_modules');
-var deps = [ 
+var deps = [
     'moment/min/moment.min.js'
 ];
 
@@ -21,7 +21,13 @@ var config = {
         inline: true,
         hot: true,
         host: "0.0.0.0",
-        port: 8000
+        port: 8000,
+        proxy: {
+            '/gm/api/*': {
+                target: 'http://localhost:9090',
+                secure: false
+            }
+        }
     },
     module: {
         noParse: [],
@@ -37,12 +43,32 @@ var config = {
                 query: {
                     presets: ['es2015', 'react']
                 }
+            },
+            {
+              test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'url?limit=10000&mimetype=application/font-woff'
+            },
+            {
+              test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'url?limit=10000&mimetype=application/octet-stream'
+            },
+            {
+              test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'file'
+            },
+            {
+              test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'url?limit=10000&mimetype=image/svg+xml'
             }
         ]
     },
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ],
 };
 deps.forEach(function (dep) {
