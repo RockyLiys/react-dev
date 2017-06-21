@@ -1,6 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var node_modules_dir = path.join(__dirname, 'node_modules');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var deps = [
     'moment/min/moment.min.js'
 ];
@@ -35,7 +36,12 @@ var config = {
             {test: /\.json$/, loader:"json"},
             { test: /\.css$/, loader: 'style-loader!css-loader' },
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass') },
             {test: /\.(png|jpg)$/, loader: 'url?limit=25000' },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+            { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
@@ -43,22 +49,7 @@ var config = {
                 query: {
                     presets: ['es2015', 'react']
                 }
-            },
-            {
-              test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-              loader: 'url?limit=10000&mimetype=application/font-woff'
-            },
-            {
-              test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-              loader: 'url?limit=10000&mimetype=application/octet-stream'
-            },
-            {
-              test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-              loader: 'file'
-            },
-            {
-              test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-              loader: 'url?limit=10000&mimetype=image/svg+xml'
+
             }
         ]
     },

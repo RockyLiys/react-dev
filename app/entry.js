@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import 'bootstrap/dist/js/bootstrap.js'
-
+// import 'bootstrap/dist/css/bootstrap.css'
 
 require("./style.css");
 // document.write(require("./content.js"));
