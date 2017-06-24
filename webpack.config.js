@@ -36,12 +36,9 @@ var config = {
             {test: /\.json$/, loader:"json"},
             { test: /\.css$/, loader: 'style-loader!css-loader' },
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass') },
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
             {test: /\.(png|jpg)$/, loader: 'url?limit=25000' },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-            { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+            { test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/, loader: 'url-loader'},
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
@@ -49,8 +46,7 @@ var config = {
                 query: {
                     presets: ['es2015', 'react']
                 }
-
-            }
+            },
         ]
     },
     plugins: [
@@ -58,8 +54,8 @@ var config = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
-            jQuery: "jquery"
-        })
+            jQuery: "jquery",
+        }),
     ],
 };
 deps.forEach(function (dep) {

@@ -1,0 +1,20 @@
+{
+  "name": "react-dev",
+  "description": "react dev",
+  "main": "bundle.js",
+  "authors": [
+    "rocky"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "react"
+  ],
+  "homepage": "https://github.com/RockyLiys/react-dev",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
