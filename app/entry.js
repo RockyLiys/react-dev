@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 require('jquery/dist/jquery.js');
 require('bootstrap/dist/js/bootstrap.js');
 require('bootstrap/dist/css/bootstrap.css');
-import HeaderNavigation from './components/HeaderNavigation.jsx';
-import buttonsInstance  from './components/ProductBox.jsx';
-
+import Navigation from './components/Navigation.jsx';
+import BreadcrumbInstance   from './components/HeaderBox.jsx';
+import ButtonGroupInstance   from './components/SliderLeftBox.jsx'
 require("./style.css");
 
-ReactDOM.render(buttonsInstance, document.getElementById('header'));
+
 
 ReactDOM.render(
   <div>
-    <HeaderNavigation />
+    <Navigation />
   </div>
   , document.getElementById('navigation')
 );
+
+ReactDOM.render(BreadcrumbInstance, document.getElementById('header'));
+ReactDOM.render(ButtonGroupInstance, document.getElementById('sideLeft'));

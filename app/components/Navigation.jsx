@@ -9,21 +9,21 @@ import InputGroup from 'react-bootstrap/lib/InputGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Button from 'react-bootstrap/lib/Button';
 
-class HeaderNavigation extends React.Component {
+class Navigation extends React.Component {
   render() {
     let brand = <a href='#'>Project Name</a>;
     return (
-      <Navbar inverse collapseOnSelect>
+      <Navbar inverse collapseOnSelect fluid>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React-Bootstrap</a>
+            <a href="#">ERP</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="#">Link</NavItem>
-            <NavItem eventKey={2} href="#">Link</NavItem>
+            <NavItem eventKey={1} href="www.react-bootstrap.github.io">React-bootstrap</NavItem>
+            <NavItem eventKey={2} href="www.baidu.com">Baidu</NavItem>
             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Action</MenuItem>
               <MenuItem eventKey={3.2}>Another action</MenuItem>
@@ -33,12 +33,12 @@ class HeaderNavigation extends React.Component {
             </NavDropdown>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">Link Right</NavItem>
-            <NavItem eventKey={2} href="#">Link Right</NavItem>
+            <NavItem eventKey={1} href="#">Help</NavItem>
+            <NavItem eventKey={2} href="#">Admin</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
    );
  }
 }
-export default HeaderNavigation;
+export default Navigation;
