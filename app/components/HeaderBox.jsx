@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom';
 import * as bootstrap from 'react-bootstrap';
 import Breadcrumb from 'react-bootstrap/lib/Breadcrumb';
 
@@ -16,4 +16,4 @@ const BreadcrumbInstance = (
     </Breadcrumb.Item>
 </Breadcrumb>
 );
-export default BreadcrumbInstance;
+ReactDOM.render(BreadcrumbInstance, document.getElementById('header'));

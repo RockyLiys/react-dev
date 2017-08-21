@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -22,8 +23,8 @@ class Navigation extends React.Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="www.react-bootstrap.github.io">React-bootstrap</NavItem>
-            <NavItem eventKey={2} href="www.baidu.com">Baidu</NavItem>
+            <NavItem eventKey={1} href="http://www.react-bootstrap.github.io">React-bootstrap</NavItem>
+            <NavItem eventKey={2} href="http://www.baidu.com">Baidu</NavItem>
             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Action</MenuItem>
               <MenuItem eventKey={3.2}>Another action</MenuItem>
